@@ -1,4 +1,7 @@
 FakeTower::Application.routes.draw do
+  resources :teams
+
+
   resources :projects
 
 

@@ -25,7 +25,7 @@ class Member
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
 
-  has_many :projects
+  belongs_to :project
   has_many :comments
   has_many :messages
   has_many :todos
