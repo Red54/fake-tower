@@ -1,1 +1,27 @@
-hello world
+<div ng-app="Project">
+	<div ng-controller="ProjectCtrl">
+		<form ng-submit="addProject()">
+			<input type="text" ng-model="newProject.name">
+		</form>
+
+		<p class="lead">Here are your projects</p>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Index</th>
+					<th>Name</th>
+					<th>Enter</th>
+				</tr>
+			<thead>
+
+			<tbody>
+				<tr ng-repeat="project in projects">
+					<td>{{ $index + 1 }}</td>
+					<td>{{ project.name }}</td>
+					<td><a ng-href="/projects/{{ project._id }}">Click Here</a></li>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>

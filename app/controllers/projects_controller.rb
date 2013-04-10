@@ -1,30 +1,36 @@
 class ProjectsController < ApplicationController
-
-	before_filter { get_member }
 	
-	respond_to :json
+	before_filter :current_projects
+	respond_to :json, :html
 
 	def index
-		respond_with @member.projects
+		respond_with @projects
 	end
 
 	def show
-		respond_with @member.projects.find(params[:id])
+		@project = @projects.find(params[:id])
+		respond_with @project
 	end
 
 	def new
-		respond_with @member.projects.build
+		@project = @projects.build
+		respond_with @project
 	end
 
 	def create
-		respond_with @member.projects.create(params[:project])
+		respond_with @projects.create(params[:project])
 	end
 
-	def edit
-		respond_with @member.update(params[:id], params[:project])
+	def update
+		respond_with @projects.update(params[:id], params[:project])
 	end
 
-	def destroy
-		respond_with Project.destroy(params[:id])
+	private
+	def current_projects
+		authenticate_member!
+		@projects = current_member.current_team.projects(current_member)
+		puts '*'
+		puts current_member.current_team.projects current_member
+		puts '*'
 	end
 end

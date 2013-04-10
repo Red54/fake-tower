@@ -1,3 +1,16 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+project_app = angular.module("Project", ["ngResource"])
+
+project_app.factory "Project", ["$resource", ($resource) ->
+	$resource("/projects/:id", {id: "@id"}, {update: {method: "PUT"}})
+]
+
+@ProjectCtrl = ["$scope", "Project", ($scope, Project) ->
+
+	$scope.projects = Project.query()
+
+	# $scope.currentProjects = Project.get({id: id})
+	
+	$scope.addProject = ->
+		project = Project.save($scope.newProject)
+		$scope.entries.push(project)
+]

@@ -9,14 +9,8 @@ m = Member.new(
 
 m.save!
 
-=begin
 p = Project.new name: "hello"
 p.save!
 
 
 p.members << m
-
-
-puts m.projects.count
-puts p.members.count
-=end
