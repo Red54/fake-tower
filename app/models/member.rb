@@ -36,6 +36,7 @@ class Member
   has_many :messages
   has_many :todos
 
+  private
   def if_root
     if self.rank == 'root'
       member = Member.find(_id)
