@@ -1,7 +1,8 @@
 class TeamsController < ApplicationController
 	respond_to :json, :html
 
-	def show
-		
+	before_filter :authenticate_member!
+	def show		
 	end
+
 end

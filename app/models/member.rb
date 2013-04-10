@@ -1,7 +1,7 @@
 class Member
   include Mongoid::Document
 
-  before_save :if_root
+  after_create :if_root
 
   def self.ranks
     [
@@ -57,6 +57,7 @@ class Member
       team = Team.create! name: "#{self.username}'s team"
       self.teams.push team
       self.current_team = team
+      self.save
     end
   end
 

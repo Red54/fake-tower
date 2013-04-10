@@ -29,8 +29,5 @@ class ProjectsController < ApplicationController
 	def current_projects
 		authenticate_member!
 		@projects = current_member.current_team.projects(current_member)
-		puts '*'
-		puts current_member.current_team.projects current_member
-		puts '*'
 	end
 end

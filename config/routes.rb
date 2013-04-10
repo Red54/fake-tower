@@ -1,14 +1,12 @@
 FakeTower::Application.routes.draw do
 
-  resources :task_lists
-
   resources :teams
 
-  resources :projects, :except => :destroy
-
-  resources :messages
-
-  resources :todos
+  resources :projects, :except => :destroy do
+  	resources :messages, :except => :destroy
+  	resources :task_lists
+  	resources :todos
+  end
 
   resources :comments
 

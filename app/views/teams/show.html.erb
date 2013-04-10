@@ -1,7 +1,10 @@
 <div ng-app="Project">
 	<div ng-controller="ProjectCtrl">
-		<form ng-submit="addProject()">
-			<input type="text" ng-model="newProject.name">
+
+		<p class="lead">Create your projects</p>
+		<form ng-submit="addProject()" class="inline-form">
+			<input type="text" ng-model="newProject.name" />
+			<input type="submit" class="btn btn-primary" />
 		</form>
 
 		<p class="lead">Here are your projects</p>
@@ -10,7 +13,7 @@
 				<tr>
 					<th>Index</th>
 					<th>Name</th>
-					<th>Enter</th>
+					<th>Enterance</th>
 				</tr>
 			<thead>
 
