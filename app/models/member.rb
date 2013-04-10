@@ -45,7 +45,6 @@ class Member
   has_and_belongs_to_many :projects, inverse_of: :members
   has_and_belongs_to_many :teams, inverse_of: :members
 
-  has_many :comments
   has_many :todos
 
   # What the member currently at

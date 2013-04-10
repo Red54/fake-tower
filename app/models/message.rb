@@ -3,6 +3,6 @@ class Message
   field :title, type: String
   field :content, type: String
   
-  has_many :comments, dependent: :destroy
+  embeds_many :comments
   belongs_to :project
 end

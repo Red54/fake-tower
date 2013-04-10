@@ -1,0 +1,22 @@
+<div class="topic well">
+	<p class="lead">Topic: <%= @message.title %></p>
+	<p class="content">Content: <%= @message.content %></p>
+
+	<hr />
+	<p class="lead">Comments: </p>
+
+	<ul type="none">
+		<% @message.comments.each do |comment| %>
+	  <li class="lead well"><a href="#">
+	  	<%= comment.author_name %>
+	  </a> said: <%= comment.content %></li>
+		<% end %>
+	</ul>
+
+	<%= render partial: 'comments/form', 
+		locals: { 
+			author_id: current_member._id, 
+			author_name: current_member.username
+		}
+		%>	
+</div>

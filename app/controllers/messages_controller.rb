@@ -1,12 +1,13 @@
 class MessagesController < ApplicationController
 
-	respond_to :json
+	respond_to :json, :html
+	# respond_to :json, :html, only: :show
 
 	before_filter :current_project
 
 	def index
 		@messages = @project.messages
-		respond_with @messages
+		respond_with @project, @messages
 	end
 
 	def show

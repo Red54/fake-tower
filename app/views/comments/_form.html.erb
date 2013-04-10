@@ -1,0 +1,9 @@
+<hr />
+<form>
+	<input type="hidden" ng-model="newComment.author_id" 
+	value="<%= author_id %>" />
+	<input type="hidden" ng-model="newComment.author_name" 
+	value="<%= author_name %>" />
+	<input type="text" ng-model="newComment.content" placeholder="Say something" /><br />
+	<input type="submit" class="btn btn-primary" value="post" />
+</form>

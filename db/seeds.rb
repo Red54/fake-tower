@@ -25,3 +25,17 @@ p.messages.create!(
 	title: 'Title 2',
 	content: 'Hello world 2'
 	)
+
+message = p.messages.first
+
+message.comments.create!(
+	content: 'hello',
+	author_id: m._id,
+	author_name: m.username
+	)
+
+message.comments.create!(
+	content: 'world',
+	author_id: m._id,
+	author_name: m.username
+	)
