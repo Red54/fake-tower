@@ -35,5 +35,10 @@ gem 'simple_form'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
+  gem 'database_cleaner'
+end
+
+group :test do
+  gem 'factory_girl_rails'
 end
 

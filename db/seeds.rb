@@ -12,6 +12,11 @@ m = Member.new(
 
 m.save!
 
+m2 = m = Member.new(
+	email: "he.jingkai@163.com",
+	username: 'jaxi',
+	password: 'fifaengine')
+
 p = Project.new name: "hello"
 p.save!
 

@@ -2,7 +2,7 @@ FakeTower::Application.routes.draw do
 
   resources :teams, only: :show
 
-  resources :projects, except: :destroy do
+  resources :projects do
 
   	resources :messages, only: [:index, :show, :new, :create] do
   		member do
@@ -10,9 +10,9 @@ FakeTower::Application.routes.draw do
   		end
   	end
 
-  	resources :task_lists, only: [:index, :show, :new, :create, :destroy]
+  	resources :task_lists, except: [:edit, :update]
 
-  	resources :todos
+  	resources :todos # The RESTful interface still in progress
 
   end
 

@@ -35,4 +35,21 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # To use Factory Girls
+  config.include FactoryGirl::Syntax::Methods
+
+  # To make Rspec support devise
+  config.include Devise::TestHelpers, :type => :controller
+
+  # To clean the test database
+
+  config.before(:each) do
+    DatabaseCleaner[:mongoid].start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner[:mongoid].clean
+  end
+
 end

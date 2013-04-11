@@ -25,9 +25,16 @@ class ProjectsController < ApplicationController
 		respond_with @projects.update(params[:id], params[:project])
 	end
 
+	def destroy
+		respond_with @projects.destroy(params[:id], params[:project])
+	end
+	
 	private
 	def current_projects
 		authenticate_member!
+
+		# authentication for the project
+		# must in the name of the current_member
 		@projects = current_member.current_team.projects(current_member)
 	end
 end
