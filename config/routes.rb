@@ -1,6 +1,6 @@
 FakeTower::Application.routes.draw do
 
-  resources :teams
+  resources :teams, only: :show
 
   resources :projects, except: :destroy do
 

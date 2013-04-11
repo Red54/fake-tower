@@ -1,6 +1,10 @@
 <h3 class="lead">Project Name: <%= @project.name %></h3>
 <hr />
  
-<%= render 'messages/overall' %>
-<h3 class="lead">Tasks</h3>
-<hr />
+<div id="message-bar">
+	<%= render 'messages/overall' %>
+</div>
+
+<div id="task-bar">
+	<%= render 'task_lists/overall' %>
+</div>

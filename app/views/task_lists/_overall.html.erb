@@ -1,0 +1,10 @@
+<h3 class="lead">Tasks</h3>
+<hr />
+
+<div ng-controller="TaskListCtrl">
+	<form ng-submit="add_task_list()">
+		<input type="text" ng-model="newTaskList.name" /><br />
+		<input type="submit" value="Post Task" class="btn btn-primary" />
+	</form>
+	{{ newTaskList.name }}
+</div>
