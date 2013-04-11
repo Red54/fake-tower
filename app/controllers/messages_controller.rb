@@ -25,6 +25,13 @@ class MessagesController < ApplicationController
 		respond_with @project, @message
 	end
 
+	def create_comment
+		@message = @project.messages.find(params[:id])
+		comment = @message.comments.create! params[:comment]
+
+		send_data comment.to_json, type: :json
+	end
+
 	private
 	def current_project
 		authenticate_member!

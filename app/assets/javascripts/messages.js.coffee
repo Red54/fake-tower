@@ -5,9 +5,16 @@ message_app.config(["$httpProvider", (provider) ->
 ])
 
 message_app.factory "Message", ["$resource", ($resource) ->
-	$resource("/projects/:project_id/messages/:id", 
-		{ project_id: location.pathname.split('/')[2], id: "@id"}, 
-		{ update: {method: "PUT"}})
+	$resource("/projects/:project_id/messages/:id/:action", 
+		{ 
+			project_id: location.pathname.split('/')[2], 
+			id: "@id"
+		}, 
+		{ 
+			update: {method: "PUT"},
+			create_comment: {method: 'POST'}
+		}
+		)
 ]
 
 @MessageCtrl = ["$scope", "Message", ($scope, Message) ->
@@ -18,5 +25,26 @@ message_app.factory "Message", ["$resource", ($resource) ->
 		message = Message.save($scope.newMessage)
 		$scope.messages.push(message)
 		$scope.newMessage = {}
+
+	$scope.comment_pool = []
+
+	$scope.addComment = () ->
+
+		$scope.newComment.author_id = $("#author_id").val()
+		$scope.newComment.author_name = $("#author_name").val()
+		$scope.message_id = $("#message_id").val()
+
+		Message.create_comment(
+			{
+				action: "create_comment", 
+				id: $scope.message_id
+			},
+			{
+				comment: $scope.newComment
+			}, 
+			(data) -> 
+				$scope.comment_pool.push data
+				$scope.newComment = {}
+			)
 
 ]
