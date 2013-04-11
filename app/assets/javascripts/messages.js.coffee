@@ -22,9 +22,10 @@ message_app.factory "Message", ["$resource", ($resource) ->
 	$scope.messages = Message.query()
 
 	$scope.addMessage = () ->
-		message = Message.save($scope.newMessage)
-		$scope.messages.push(message)
-		$scope.newMessage = {}
+		message = Message.save($scope.newMessage, ->
+			$scope.messages.push(message)
+			$scope.newMessage = {}
+			)
 
 	$scope.comment_pool = []
 

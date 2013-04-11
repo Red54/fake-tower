@@ -39,3 +39,6 @@ message.comments.create!(
 	author_id: m._id,
 	author_name: m.username
 	)
+
+p.task_lists.create! name: "Task 1"
+p.task_lists.create! name: "Task 2"

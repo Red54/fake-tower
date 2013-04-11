@@ -5,13 +5,21 @@ task_list_app.config(["$httpProvider", (provider) ->
 ])
 
 task_list_app.factory "TaskList", ["$resource", ($resource) ->
-	$resource("/task_lists/:id", {id: "@id"}, {update: {method: "PUT"}})
+	$resource("/projects/:project_id/task_lists/:id", 
+		{ 
+			project_id: location.pathname.split('/')[2], 
+			id: "@id"
+		}, 
+		{ update: {method: "PUT"}})
 ]
 
 @TaskListCtrl = ["$scope", "TaskList", ($scope, TaskList) ->
 
-	# $scope.task_lists = TaskList.query()
+	$scope.task_lists = TaskList.query()
 	
 	$scope.add_task_list = ->
-		$scope.newTaskList = {}
+		task_list = TaskList.save($scope.newTaskList, ->
+			$scope.task_lists.push task_list
+			$scope.newTaskList = {}
+			)
 ]

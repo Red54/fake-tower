@@ -1,10 +1,28 @@
-<h3 class="lead">Tasks</h3>
-<hr />
+<div id="task-bar">
+	<h3 class="lead">Tasks</h3>
+	<hr />
 
-<div ng-controller="TaskListCtrl">
-	<form ng-submit="add_task_list()">
-		<input type="text" ng-model="newTaskList.name" /><br />
-		<input type="submit" value="Post Task" class="btn btn-primary" />
-	</form>
-	{{ newTaskList.name }}
+	<div ng-controller="TaskListCtrl">
+		<form ng-submit="add_task_list()">
+			<input type="text" ng-model="newTaskList.name" /><br />
+			<input type="submit" value="Post Task" class="btn btn-primary" />
+		</form>
+		{{ newTaskList.name }}
+		<table class="table table-striped">
+
+			<thead>
+				<tr>
+					<th>Index</th>
+					<th>Task Name</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat="task in task_lists">
+					<td>{{ $index + 1 }}</td>
+					<td><a ng-href="/projects/<%= @project._id %>/task_lists/{{ task._id }}" >{{ task.name }}</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>

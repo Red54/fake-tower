@@ -13,7 +13,8 @@ project_app.factory "Project", ["$resource", ($resource) ->
 	$scope.projects = Project.query()
 	
 	$scope.addProject = ->
-		project = Project.save($scope.newProject)
-		$scope.projects.push(project)
-		$scope.newProject = {}
+		project = Project.save($scope.newProject, ->
+			$scope.projects.push(project)
+			$scope.newProject = {}
+			)
 ]

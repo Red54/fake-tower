@@ -10,7 +10,7 @@ FakeTower::Application.routes.draw do
   		end
   	end
 
-  	resources :task_lists
+  	resources :task_lists, only: [:index, :show, :new, :create]
 
   	resources :todos
 
