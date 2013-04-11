@@ -10,7 +10,10 @@ task_list_app.factory "TaskList", ["$resource", ($resource) ->
 			project_id: location.pathname.split('/')[2], 
 			id: "@id"
 		}, 
-		{ update: {method: "PUT"}})
+		{ 
+			update: {method: "PUT"},
+			destroy: { method: 'DELETE'}
+		})
 ]
 
 @TaskListCtrl = ["$scope", "TaskList", ($scope, TaskList) ->
@@ -22,4 +25,12 @@ task_list_app.factory "TaskList", ["$resource", ($resource) ->
 			$scope.task_lists.push task_list
 			$scope.newTaskList = {}
 			)
+
+	$scope.delete_task = (task_id)->
+		TaskList.destroy({
+			id: task_id
+			}, ->
+				$scope.task_lists = $scope.task_lists.filter (task) ->
+					task._id != task_id
+					)
 ]

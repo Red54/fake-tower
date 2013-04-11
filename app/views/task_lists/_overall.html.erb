@@ -7,13 +7,13 @@
 			<input type="text" ng-model="newTaskList.name" /><br />
 			<input type="submit" value="Post Task" class="btn btn-primary" />
 		</form>
-		{{ newTaskList.name }}
 		<table class="table table-striped">
 
 			<thead>
 				<tr>
 					<th>Index</th>
 					<th>Task Name</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 
@@ -21,6 +21,11 @@
 				<tr ng-repeat="task in task_lists">
 					<td>{{ $index + 1 }}</td>
 					<td><a ng-href="/projects/<%= @project._id %>/task_lists/{{ task._id }}" >{{ task.name }}</a></td>
+					<td>
+						<form class="form-inline" ng-submit="delete_task(task._id)">
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</form>
+					</td>
 				</tr>
 			</tbody>
 		</table>

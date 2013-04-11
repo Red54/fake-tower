@@ -1,0 +1,20 @@
+<div class="topic well" ng-app="TaskList">
+	<div ng-controller="TaskListCtrl">
+		<%= hidden_field_tag "task_list_id", @task_list._id %>
+		<p class="lead">Topic: <%= @task_list.name %></p>
+
+		<hr />
+		<p class="lead">todos: </p>
+
+		<ul type="none">
+		  <% @task_list.todos.each do |todo| %>
+			  <li class="lead well"><a href="#">
+			  	<%= todo.owner.username %>
+			  </a> should have done: <%= todo.content %></li>
+		  <% end %>
+		  
+		  <div id="todo-pool">
+		  </div>
+		</ul>
+	</div>
+</div>

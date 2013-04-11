@@ -2,6 +2,8 @@ Member.destroy_all
 Project.destroy_all
 Team.destroy_all
 Message.destroy_all
+TaskList.destroy_all
+Todo.destroy_all
 
 m = Member.new(
 	email: "jaxihe@gmail.com",
@@ -42,3 +44,8 @@ message.comments.create!(
 
 p.task_lists.create! name: "Task 1"
 p.task_lists.create! name: "Task 2"
+
+task = p.task_lists.first
+
+task.todos.create content: "Todo 1", owner: m
+task.todos.create content: "Todo 2", owner: m

@@ -22,4 +22,9 @@ class TaskListsController < ApplicationController
 		@task_list =  @project.task_lists.create(params[:task_list])
 		respond_with @project, @task_list
 	end
+
+	def destroy
+		@task_list = @project.task_lists.find(params[:id])
+		respond_with @task_list.destroy
+	end
 end
