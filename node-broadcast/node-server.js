@@ -5,6 +5,11 @@ redis.subscribe('message-comment');
 
 io.on('connection', function(socket){
   redis.on('message', function(channel, message){
-    socket.emit('message-comment', JSON.parse(message));
+
+  	var data = JSON.parse(message);
+  	var message_id = data.message_id;
+  	var comment = data.comment;
+
+    socket.emit('message-comment-' + message_id, comment);
   });
 });

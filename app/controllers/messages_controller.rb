@@ -29,9 +29,10 @@ class MessagesController < ApplicationController
 		@message = @project.messages.find(params[:id])
 		comment = @message.comments.create! params[:comment]
 
-		$redis.publish 'message-comment', comment.to_json
+		data = "{ \"message_id\": \"#{@message._id}\", \"comment\": #{comment.to_json} }"
+		$redis.publish 'message-comment', data
 
-		send_data comment.to_json, type: :json
+		send_data 'OK'
 	end
 
 	private

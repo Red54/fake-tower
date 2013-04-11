@@ -17,8 +17,6 @@ message_app.factory "Message", ["$resource", ($resource) ->
 		)
 ]
 
-socket = io.connect("http://localhost:5001")
-
 @MessageCtrl = ["$scope", "Message", ($scope, Message) ->
 
 	$scope.messages = Message.query()
@@ -46,7 +44,12 @@ socket = io.connect("http://localhost:5001")
 			}, 
 			)
 
-	socket.on "message-comment", (data) ->
-		$('#comment-pool').append("<li class='lead well'><a href='#'>#{data.author_name}</a> said: #{data.content} </li>")
-		$scope.newComment = {}
+	socket = io.connect("http://localhost:5001")
+	message_id = $('#message_id').val()
+
+	if( message_id != undefined )
+		socket.on "message-comment-#{message_id}", (data) ->
+
+			$('#comment-pool').append("<li class='lead well'><a href='#'>#{data.author_name}</a> said: #{data.content} </li>")
+			$scope.newComment = {}
 ]
