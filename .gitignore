@@ -13,4 +13,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/node-broadcast/node_modules/
+
+/node-broadcast/node_modules/*
