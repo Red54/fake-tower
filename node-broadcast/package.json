@@ -1,0 +1,9 @@
+{
+  "name" : "node-broadcast",
+  "description" : "cast the comments by socket.io",
+  "version" : "0.0.1",
+  "dependencies" : {
+    "socket.io" : "0.9.12",
+    "redis": "0.7.3"
+  }
+}

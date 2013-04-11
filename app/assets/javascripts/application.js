@@ -9,4 +9,5 @@
 //= require twitter/bootstrap
 //= require angular
 //= require angular-resource
+//= require socket.io.js
 //= require_tree .

@@ -2,8 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-# to Use MongoDB
+# To use MongoDB
 gem 'mongoid'
+
+# To use Redis as a bare message queue
+gem 'redis'
 
 gem 'sqlite3'
 

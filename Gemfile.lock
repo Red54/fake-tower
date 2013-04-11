@@ -111,6 +111,7 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (3.0.3)
     ref (1.0.4)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
@@ -158,6 +159,7 @@ DEPENDENCIES
   less-rails
   mongoid
   rails (= 3.2.13)
+  redis
   rspec-rails (~> 2.0)
   simple_form
   sqlite3
