@@ -20,9 +20,22 @@ Tech Stack
   * Angularjs: Front-end MVC.
   * simple_form: To generate programmer-friendly form code.
 
+How it works
 ------
-* Test command: <code>rake spec:controllers</code>
+1 Clone the repo
+2 Ensure RVM, NVM, mongodb and redis are installed
+3 Test command: <code>$ rake spec:controllers</code>
+4 Launch the db:
 
+```
+$ mongod
+$ redis-server
+```
+
+5 Open the socket: <code>$ cd node-broadcast && npm install && node.server.js</code>
+6 Bundle install and start the rail server
+
+-------
 Well, it's only a fake tower.im. <del>The app would be deployed to Heroku after half-assed finished.<del>
 
 License
