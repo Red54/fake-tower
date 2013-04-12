@@ -12,7 +12,7 @@ Tech Stack
   * Node.js & Socket.io: Real time chat
   * Redis: bald message queue(no Resque or Sidekiq)
   * Devise: Permission control.
-  * Rspec: For testing.
+  * Rspec & Factory-girls: For testing.
 
 * Front-end:
 
@@ -20,6 +20,8 @@ Tech Stack
   * Angularjs: Front-end MVC.
   * simple_form: To generate programmer-friendly form code.
 
+------
+* Test command: <code>rake spec:controllers</code>
 
 Well, it's only a fake tower.im. <del>The app would be deployed to Heroku after half-assed finished.<del>
 
