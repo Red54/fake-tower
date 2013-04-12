@@ -21,6 +21,10 @@ class ProjectsController < ApplicationController
 		respond_with @projects.create(params[:project])
 	end
 
+	def edit
+		respond_with @projects.find(params[:id])
+	end
+
 	def update
 		respond_with @projects.update(params[:id], params[:project])
 	end
@@ -34,7 +38,7 @@ class ProjectsController < ApplicationController
 		authenticate_member!
 
 		# authentication for the project
-		# must in the name of the current_member
+		# must be in the name of the current_member
 		@projects = current_member.current_team.projects(current_member)
 	end
 end
