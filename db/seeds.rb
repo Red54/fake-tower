@@ -8,14 +8,14 @@ Todo.destroy_all
 m = Member.new(
 	email: "jaxihe@gmail.com",
 	username: 'jaxi',
-	password: 'fifaengine')
+	password: '12345678')
 
 m.save!
 
 m2 = m = Member.new(
 	email: "he.jingkai@163.com",
 	username: 'jaxi',
-	password: 'fifaengine')
+	password: '12345678')
 
 p = Project.new name: "hello"
 p.save!
