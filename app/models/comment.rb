@@ -6,9 +6,9 @@ class Comment
   field :author_name, type: String
 
   validates :content, presence: true
-  
+
   ## Associations
-  # To alternative choices, 
+  # To alternative choices,
   # embed might be a better approach than belongs_to
 
   embedded_in :todo

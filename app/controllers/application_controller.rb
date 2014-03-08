@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 	def current_project
 		authenticate_member!
 		@project = Project.find(params[:project_id])
-		
+
 		# Permission authenticate
 		unless current_member.projects.include? @project
 			return

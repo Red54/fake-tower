@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	
+
 	before_filter :current_projects
 	respond_to :json, :html
 
@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
 	def destroy
 		respond_with @projects.destroy(params[:id], params[:project])
 	end
-	
+
 	private
 	def current_projects
 		authenticate_member!
